@@ -1,0 +1,35 @@
+@import "tailwindcss";
+:root {
+  --font-space-grotesk: "Space Grotesk", sans-serif;
+}
+
+html {
+  font-family: var(--font-space-grotesk);
+}
+
+.swiper-pagination-bullet {
+  background-color: #facc15 !important; /* yellow-400 */
+  opacity: 0.4;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #facc15 !important; /* yellow-400 */
+  opacity: 1;
+}
+/* styles/globals.css */
+@keyframes marqueeLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+@keyframes marqueeRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(50%);
+  }
+}
