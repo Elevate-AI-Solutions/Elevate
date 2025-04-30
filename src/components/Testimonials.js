@@ -1,19 +1,18 @@
-// components/TestimonialsSwiper.jsx
 "use client";
 
-import "swiper/css";
-import "swiper/css/free-mode";
-
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Autoplay } from "swiper/modules";
-import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import "swiper/css";
+import "swiper/css/free-mode";
+import { useAnimationFrame } from "framer-motion";
 
-// Expanded list of testimonials (now with 18 items for 3 rows of 6 each)
 const getAvatarUrl = (name) =>
   `https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=${encodeURIComponent(
     name
   )}&radius=50&backgroundColor=b6e3f4,c0aede,d1d4f9`;
+
 const testimonials = [
   {
     quote:
@@ -129,6 +128,63 @@ const testimonials = [
   },
 ];
 
+const SCROLL_SPEEDS = [50, -50, 50]; // px/second (negative = reverse)
+
+function InfiniteRow({ items, speed = 50 }) {
+  const containerRef = useRef(null);
+  const x = useRef(0);
+
+  useAnimationFrame((t, delta) => {
+    if (!containerRef.current) return;
+    const container = containerRef.current;
+
+    x.current -= (speed * delta) / 1000;
+    if (x.current < -container.scrollWidth / 2) x.current = 0;
+    if (x.current > 0) x.current = -container.scrollWidth / 2;
+
+    container.style.transform = `translateX(${x.current}px)`;
+  });
+
+  return (
+    <div className="overflow-hidden w-full">
+      <div ref={containerRef} className="flex whitespace-nowrap">
+        {[...items, ...items].map((t, i) => (
+          <div
+            key={i}
+            className="flex-shrink-0 w-[280px] sm:w-[350px] md:w-[400px] lg:w-[500px] 
+                     border-l-4 rounded-lg 
+                     p-4 md:p-6 mx-3 shadow-lg 
+                     bg-white/10 backdrop-blur-md backdrop-saturate-150 
+                     border border-white/20"
+          >
+            <p className="text-gray-200 text-wrap italic text-sm md:text-base mb-3 md:mb-4">
+              &ldquo;{t.quote}&rdquo;
+            </p>
+            <div className="flex items-center mt-auto">
+              <div className="relative w-10 h-10 rounded-full overflow-hidden ring-2 ring-yellow-400">
+                <Image
+                  src={getAvatarUrl(t.name)}
+                  alt={t.name}
+                  width={40}
+                  height={40}
+                  className="object-cover"
+                  unoptimized
+                />
+              </div>
+              <div className="ml-3">
+                <p className="text-yellow-400 font-semibold text-sm md:text-base">
+                  {t.name}
+                </p>
+                <p className="text-gray-400 text-xs md:text-sm">{t.role}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function TestimonialsSwiper() {
   const ROWS = 3;
   const CARDS_PER_ROW = 6;
@@ -136,116 +192,30 @@ export default function TestimonialsSwiper() {
     testimonials.slice(i * CARDS_PER_ROW, (i + 1) * CARDS_PER_ROW)
   );
 
-  const swiperRefs = useRef([]);
-  const containerRef = useRef(null);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
-  const swiperConfig = {
-    speed: isMobile ? 15000 : 10000, // Faster on mobile
-    autoplay: {
-      delay: 0,
-      disableOnInteraction: false,
-      pauseOnMouseEnter: false,
-      waitForTransition: false,
-    },
-    loop: true,
-    loopAdditionalSlides: isMobile ? 4 : 10,
-    freeMode: {
-      enabled: true,
-      momentum: false,
-      sticky: false,
-    },
-    slidesPerView: "auto",
-    spaceBetween: isMobile ? 16 : 24,
-    resistanceRatio: 0,
-  };
-
-  useEffect(() => {
-    swiperRefs.current = swiperRefs.current.slice(0, ROWS);
-  }, [ROWS]);
-
   return (
-    <section
-      className="py-8 md:py-16 bg-black h-full relative overflow-hidden"
-      ref={containerRef}>
-      {/* Sidebar - Hidden on mobile */}
+    <section className="bg-black py-8 md:py-16 relative overflow-hidden">
+      {/* Sidebar */}
       <div
-        className="hidden md:flex w-3xl absolute left-0 z-50 h-full bg-black items-center"
+        className="hidden md:flex absolute left-0 z-50 h-full items-center bg-black"
         style={{
-          maskImage: "linear-gradient(to right, black 0%, transparent 60%)",
-          WebkitMaskImage:
-            "linear-gradient(to right, black 0%, transparent 60%)",
+          maskImage: "linear-gradient(to right, black 0%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to right, black 0%, transparent 100%)",
           backdropFilter: "blur(8px)",
-        }}>
-        <h2 className="text-6xl -rotate-90 font-extrabold text-center text-yellow-400 whitespace-nowrap">
+        }}
+      >
+        <h2 className="text-6xl -rotate-90 font-extrabold text-yellow-400 whitespace-nowrap">
           Testimonials
         </h2>
       </div>
 
-      {/* Mobile Title - Only shows on small screens */}
-      <h2 className="md:hidden text-3xl font-extrabold text-center text-yellow-400 mb-6 px-4">
+      {/* Mobile title */}
+      <h2 className="md:hidden text-3xl font-extrabold text-yellow-400 text-center mb-6 px-4">
         Testimonials
       </h2>
 
-      <div className="space-y-4 md:space-y-8 ">
+      <div className="space-y-8">
         {rows.map((rowItems, idx) => (
-          <Swiper
-            key={idx}
-            ref={(el) => (swiperRefs.current[idx] = el)}
-            modules={[FreeMode, Autoplay]}
-            {...swiperConfig}
-            autoplay={{
-              ...swiperConfig.autoplay,
-              reverseDirection: idx % 2 !== 0,
-            }}
-            onSlideChange={() => {
-              const swiper = swiperRefs.current[idx];
-              if (swiper && swiper.progress > 0.9) {
-                swiper.slideTo(0, 0, false);
-              }
-            }}
-            className="overflow-hidden py-2 md:py-4">
-            {[...rowItems, ...rowItems].map((t, i) => (
-              <SwiperSlide
-                key={`${idx}-${i}`}
-                className="!w-[280px] sm:!w-[350px] md:!w-[400px] lg:!w-[500px]">
-                <div className="h-full w-full bg-gray-800 border-l-4 border-yellow-400 rounded-lg p-4 md:p-6 flex flex-col justify-between shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                  <p className="text-gray-200 italic text-sm md:text-base mb-3 md:mb-4">
-                    &ldquo;{t.quote}&rdquo;
-                  </p>
-                  <div className="flex items-center justify-between mt-auto">
-                    <div className="flex items-center">
-                      <div className="relative w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 rounded-full overflow-hidden ring-2 ring-yellow-400">
-                        <Image
-                          src={getAvatarUrl(t.name)}
-                          alt={t.name}
-                          width={48}
-                          height={48}
-                          className="object-cover"  
-                          unoptimized
-                        />
-                      </div>
-                      <div className="ml-2 md:ml-3">
-                        <p className="text-yellow-400 font-semibold text-sm md:text-base">
-                          {t.name}
-                        </p>
-                        <p className="text-gray-400 text-xs md:text-sm">
-                          {t.role}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+          <InfiniteRow key={idx} items={rowItems} speed={SCROLL_SPEEDS[idx]} />
         ))}
       </div>
     </section>
