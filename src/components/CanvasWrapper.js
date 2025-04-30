@@ -31,9 +31,8 @@ export default function NetBackground() {
             backgroundColor: 0x0a0a0a,
 
             // Optimizations
-            points:
-              typeof window !== "undefined" && window.innerWidth > 768 ? 8 : 4,
-            maxDistance: 20.0, // lower = less chaotic connections (default is 20–30)
+            points: 10,
+            maxDistance: 12.0, // lower = less chaotic connections (default is 20–30)
             spacing:
               typeof window !== "undefined" && window.innerWidth > 768
                 ? 15
