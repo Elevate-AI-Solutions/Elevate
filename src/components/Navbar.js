@@ -13,7 +13,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
         {/* Logo */}
         <div className="text-xl text-yellow-400 font-bold cursor-pointer">
-          Elevate AI Solutions
+          Elevate AI Solution
         </div>
 
         {/* Desktop Nav */}

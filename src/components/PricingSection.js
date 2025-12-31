@@ -26,7 +26,7 @@ export default function PricingSection() {
             </div>
 
             <h3 className="text-xl sm:text-2xl font-bold">
-              MVP Development
+              Business Stratgy & MVP Development
             </h3>
             <p className="text-white/60 mt-1 text-sm sm:text-base">
               Minimum Viable Product for startups and new ideas
@@ -47,10 +47,10 @@ export default function PricingSection() {
               </h4>
               <ul className="space-y-3">
                 {[
-                  "Complete MVP in 3 weeks",
+                  "Complete Business Strategy & MVP in 3 weeks",
                   "Production-ready code",
                   "Modern tech stack",
-                  "Responsive design",
+                  "Scalable Architecture",
                   "Free deployment",
                   "3 weeks support",
                 ].map((item) => (
@@ -73,10 +73,10 @@ export default function PricingSection() {
               Free Discovery Mail →
             </a>
 
-            <div className="mt-4 flex flex-wrap justify-center gap-4 text-xs sm:text-sm text-white/60">
+            {/* <div className="mt-4 flex flex-wrap justify-center gap-4 text-xs sm:text-sm text-white/60">
               <span>Money-back guarantee</span>
               <span>⚡ 3-week delivery</span>
-            </div>
+            </div> */}
           </div>
 
           {/* Custom Consultancy */}
@@ -111,7 +111,7 @@ export default function PricingSection() {
               </h4>
               <ul className="space-y-3">
                 {[
-                  "Custom requirements analysis",
+                  "Custom requirement analysis",
                   "Scalable architecture design",
                   "Enterprise-grade solutions",
                   "Advanced integrations",
@@ -138,10 +138,10 @@ export default function PricingSection() {
               Schedule Consultation →
             </a>
 
-            <div className="mt-4 flex flex-wrap justify-center gap-4 text-xs sm:text-sm text-white/60">
+            {/* <div className="mt-4 flex flex-wrap justify-center gap-4 text-xs sm:text-sm text-white/60">
               <span>Free quote within 24h</span>
               <span>Dedicated team</span>
-            </div>
+            </div> */}
           </div>
         </div>
 

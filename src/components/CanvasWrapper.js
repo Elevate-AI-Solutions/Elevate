@@ -62,8 +62,8 @@ export default function NetBackground() {
           text-sm sm:text-base md:text-lg
           max-w-2xl
         ">
-          Transforming businesses, brands, and startups with the unstoppable
-          force of AI. Welcome to the future.
+         Technology is just the tool. Growth is the goal.
+         Our collaborative, integrity-first approach turns ideas into scalable solutions that drives real business impact.
         </p>
 
         <div className="mt-6">
