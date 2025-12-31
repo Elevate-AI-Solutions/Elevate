@@ -53,10 +53,11 @@ export default function NetBackground() {
       ref={vantaRef}
       className="w-full h-screen px-4 flex items-center justify-center relative text-white overflow-hidden">
       <div className="z-10 text-center items-center flex flex-col">
-        <h1 className="text-5xl font-extrabold text-yellow-400 drop-shadow-md">
-          Accelerate Your Venture Success with AI
+        <h1 className="text-7xl font-extrabold text-yellow-400 drop-shadow-md">
+          Turn your Idea into 
+          Scalable Products
         </h1>
-        <p className="mt-4 text-lg lg:text-xl lg:w-2/3 w-full text-center text-white/80 font-bold">
+        <p className="mt-4 text-5xl lg:text-xl lg:w-2/3 w-full text-center text-white/80 font-bold">
           Transforming businesses, brands, and startups with the unstoppable
           force of AI. Welcome to the future.
         </p>

@@ -6,7 +6,7 @@ import Marquee from "react-fast-marquee";
 const insights = [
   { value: "100%", label: "Client Satisfaction" },
   { value: "5+ years", label: "Team Experience" },
-  { value: "10+", label: "Team Members" },
+  { value: "4+", label: "Team Members" },
   { value: "20+", label: "Projects Completed" },
 ];
 

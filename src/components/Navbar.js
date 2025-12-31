@@ -13,7 +13,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
         {/* Logo */}
         <div className="text-xl text-yellow-400 font-bold cursor-pointer">
-          ElivateLabs.Ai
+          Elevate AI Solutions
         </div>
 
         {/* Desktop Nav */}
@@ -21,10 +21,14 @@ const Navbar = () => {
           <Link href="/" className="hover:text-gray-300 transition">
             Home
           </Link>
-          <Link href="/service" className="hover:text-gray-300 transition">
-            Service
+          <Link href="#pricing" className="hover:text-gray-300 transition">
+            Pricing
           </Link>
-          <Link href="/clients" className="hover:text-gray-300 transition">
+          <Link href="#services" className="hover:text-gray-300 transition">
+            Services
+          </Link>
+
+          <Link href="#projects" className="hover:text-gray-300 transition">
             Clients
           </Link>
             <button

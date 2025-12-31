@@ -10,8 +10,8 @@ import "swiper/css";
 
 const projectData = [
   {
-    title: "Smart Manufacturing Dashboard",
-    company: "TechManufacture Inc",
+    title: "Smart Logistics Dashboard",
+    company: "TechLogistics / Shipment",
     image:
       "https://images.unsplash.com/photo-1717386255773-1e3037c81788?q=80&w=3540&auto=format&fit=crop",
     overview:
@@ -28,8 +28,8 @@ const projectData = [
     achievements: "35% reduction in downtime, 50% faster issue resolution",
   },
   {
-    title: "AI Healthcare Assistant",
-    company: "MediTech AI",
+    title: "AI Healthcare Full-Stack",
+    company: "Authotics",
     image:
       "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=3540&auto=format&fit=crop",
     overview:
@@ -37,16 +37,18 @@ const projectData = [
     technologies: ["Next.js", "OpenAI", "FastAPI", "Supabase"],
     features: [
       "24/7 patient support chatbot",
+      "AI-powered diagnosis using image and video",
       "Smart appointment scheduler",
       "EMR integration",
       "Multi-language support",
+
     ],
     timeline: "Completed in 5 months",
     achievements: "70% faster appointment booking, 99% query resolution rate",
   },
   {
-    title: "E-Commerce Revamp",
-    company: "RetailMax",
+    title: "E-Commerce Across the Globe",
+    company: "Laithwaits Wine",
     image:
       "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=3540&auto=format&fit=crop",
     overview:
@@ -54,6 +56,8 @@ const projectData = [
     technologies: ["Next.js", "Stripe", "Redis", "AWS", "Node.js"],
     features: [
       "Product recommendations using ML",
+      "AI-powered chatbot",
+      "Advance Search functionality",
       "Live stock tracking",
       "Optimized checkout flow",
       "Admin analytics dashboard",
@@ -68,7 +72,7 @@ const Projects = () => {
   const selected = selectedIndex !== null ? projectData[selectedIndex] : null;
 
   return (
-    <section className="bg-[#0a0a0a] py-20 px-4 text-white">
+    <section id="projects" className="bg-[#0a0a0a] py-20 px-4 text-white">
       <h2 className="text-4xl font-bold text-center text-yellow-400 mb-12">
         Explore Our Projects
       </h2>
@@ -85,7 +89,7 @@ const Projects = () => {
           1280: { slidesPerView: 3 },
         }}
         loop
-        className="max-w-7xl mx-auto">
+        className="max-w-7xl">
         {projectData.map((card, index) => (
           <SwiperSlide key={index} className="flex rounded-2xl">
             <div
@@ -105,9 +109,9 @@ const Projects = () => {
                   <p className="text-sm text-gray-300 mt-2 line-clamp-3">
                     {card.overview}
                   </p>
-                  <p className="text-xs text-gray-400 mt-2">
+                  {/* <p className="text-xs text-gray-400 mt-2">
                     <strong>Timeline:</strong> {card.timeline}
-                  </p>
+                  </p> */}
                 </div>
 
                 {/* Technologies Chips */}
@@ -149,7 +153,11 @@ const Projects = () => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 50 }}
               transition={{ duration: 0.3 }}
-              className="bg-black text-white rounded-2xl max-w-4xl w-full overflow-hidden z-50 relative">
+              className="bg-black text-white rounded-2xl
+                          max-w-4xl w-full
+                          max-h-[90vh]
+                          overflow-hidden
+                          z-50 relative">
               <button
                 className="absolute cursor-pointer top-4 right-4 bg-black text-white p-2 rounded-full shadow z-50"
                 onClick={() => setSelectedIndex(null)}>
@@ -158,10 +166,10 @@ const Projects = () => {
 
               <img
                 src={selected.image}
-                className="h-60 w-full object-cover"
+                className="h-48 md:h-60 w-full object-cover"
                 alt={selected.title}
               />
-              <div className="p-6 space-y-4">
+              <div className="p-6 space-y-4 overflow-y-auto max-h-[calc(90vh-12rem)]">
                 <h3 className="text-2xl font-bold">{selected.title}</h3>
                 <p className="text-yellow-400">{selected.company}</p>
 
@@ -192,10 +200,10 @@ const Projects = () => {
                   </ul>
                 </div>
 
-                <div>
+                {/* <div>
                   <h4 className="font-semibold">Project Timeline</h4>
                   <p className="text-sm text-yellow-400">{selected.timeline}</p>
-                </div>
+                </div> */}
 
                 <div className="bg-yellow-100 text-yellow-900 rounded-xl p-4 font-semibold">
                   Key Achievements: {selected.achievements}

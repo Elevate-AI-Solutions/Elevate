@@ -23,7 +23,7 @@ const testimonials = [
   },
   {
     quote:
-      "A reliable partner that helped us navigate the complex world of AI.",
+      "Elevate AI is a reliable partner that helped us navigate the complex world of AI.",
     name: "Amélie R.",
     role: "CTO",
     avatar: "/avatars/amelie.jpg",
@@ -35,7 +35,7 @@ const testimonials = [
     avatar: "/avatars/olivier.jpg",
   },
   {
-    quote: "The team at Elevate Labs is top‑notch. They understood our vision…",
+    quote: "The team at Elevate AI is top‑notch. They understood our vision…",
     name: "Clément R.",
     role: "Startup Founder",
     avatar: "/avatars/clement.jpg",
@@ -48,7 +48,7 @@ const testimonials = [
   },
   {
     quote:
-      "Elevate Labs is the future of AI‑driven business solutions. Highly recommended!",
+      "Elevate AI is the future of AI‑driven business solutions. Highly recommended!",
     name: "Samuel P.",
     role: "Tech Lead",
     avatar: "/avatars/samuel.jpg",
@@ -66,7 +66,7 @@ const testimonials = [
     avatar: "/avatars/antoine.jpg",
   },
   {
-    quote: "Delivered beyond our expectations with their custom AI solution.",
+    quote: "Elevate Delivered beyond our expectations with their custom AI solution.",
     name: "Élodie V.",
     role: "CEO",
     avatar: "/avatars/elodie.jpg",

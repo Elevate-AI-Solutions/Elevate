@@ -136,8 +136,12 @@ export default function ServicesSection() {
   const active = services.find((s) => s.id === activeId);
 
   return (
-    <section className="bg-black text-white py-12">
+    <section id="services" className="bg-black text-white py-14">
+      <h2 className="text-4xl font-bold text-center text-yellow-400 mt-12 mb-12">
+        Our Services
+      </h2>
       <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row">
+      
         {/* ============================= */}
         {/* MOBILE + DESKTOP TAB LIST */}
         {/* ============================= */}
