@@ -3,13 +3,12 @@
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import FancyButton from "./Button";
-import ContactModal from "./ContactUsModal";
 import { useContactModal } from "@/contexts/ModalContext";
 
 export default function NetBackground() {
   const vantaRef = useRef(null);
   const [vantaEffect, setVantaEffect] = useState(null);
-  const { openModal } = useContactModal()
+  const { openModal } = useContactModal();
 
   useEffect(() => {
     import("vanta/dist/vanta.net.min").then((VANTA) => {
@@ -21,22 +20,17 @@ export default function NetBackground() {
             mouseControls: true,
             touchControls: true,
             gyroControls: false,
-            minHeight: 200.0,
-            minWidth: 200.0,
-            scale: 1.0,
-            scaleMobile: 0.8,
+            minHeight: 200,
+            minWidth: 200,
+            scale: 1,
+            scaleMobile: 0.7,
 
-            // Colors
             color: 0xffd700,
             backgroundColor: 0x0a0a0a,
 
-            // Optimizations
-            points: 10,
-            maxDistance: 12.0, // lower = less chaotic connections (default is 20–30)
-            spacing:
-              typeof window !== "undefined" && window.innerWidth > 768
-                ? 15
-                : 20, // more spacing = cleaner look (default is ~12–20)
+            points: window.innerWidth < 768 ? 6 : 10,
+            maxDistance: window.innerWidth < 768 ? 10 : 12,
+            spacing: window.innerWidth < 768 ? 20 : 15,
           })
         );
       }
@@ -48,25 +42,34 @@ export default function NetBackground() {
   }, [vantaEffect]);
 
   return (
-    <div
+    <section
       id="home"
       ref={vantaRef}
-      className="w-full h-screen px-4 flex items-center justify-center relative text-white overflow-hidden">
-      <div className="z-10 text-center items-center flex flex-col">
-        <h1 className="text-7xl font-extrabold text-yellow-400 drop-shadow-md">
-          Turn your Idea into 
+      className="w-full min-h-screen px-4 flex items-center justify-center relative text-white overflow-hidden"
+    >
+      <div className="z-10 text-center flex flex-col items-center max-w-4xl">
+        <h1 className="
+          font-extrabold text-yellow-400 drop-shadow-md
+          text-3xl sm:text-4xl md:text-5xl lg:text-6xl
+          leading-tight
+        ">
+          Turn your Ideas into <br className="hidden sm:block" />
           Scalable Products
         </h1>
-        <p className="mt-4 text-5xl lg:text-xl lg:w-2/3 w-full text-center text-white/80 font-bold">
+
+        <p className="
+          mt-4 text-white/80 font-medium
+          text-sm sm:text-base md:text-lg
+          max-w-2xl
+        ">
           Transforming businesses, brands, and startups with the unstoppable
           force of AI. Welcome to the future.
         </p>
 
-        <div className="mt-5">
+        <div className="mt-6">
           <FancyButton openModal={openModal} />
         </div>
       </div>
-      {/* <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} /> */}
-    </div>
+    </section>
   );
 }

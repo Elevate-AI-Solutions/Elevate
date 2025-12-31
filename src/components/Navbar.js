@@ -78,13 +78,19 @@ const Navbar = () => {
             Home
           </Link>
           <Link
-            href="/service"
+            href="#pricing"
+            onClick={() => setIsOpen(false)}
+            className="hover:text-yellow-400 transition">
+            Pricing
+          </Link>
+          <Link
+            href="#services"
             onClick={() => setIsOpen(false)}
             className="hover:text-yellow-400 transition">
             Service
           </Link>
           <Link
-            href="/clients"
+            href="#clients"
             onClick={() => setIsOpen(false)}
             className="hover:text-yellow-400 transition">
             Clients
