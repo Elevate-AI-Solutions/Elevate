@@ -36,9 +36,9 @@ export default function PricingSection() {
             </div>
 
             <div className="mt-8">
-              <h4 className="font-semibold mb-4 text-yellow-400">
-                What's Included
-              </h4>
+            <h4 className="font-semibold mb-4 text-yellow-400">
+              What&apos;s Included
+            </h4>
               <ul className="space-y-3">
                 {[
                   "Complete MVP in 3 weeks",
@@ -94,7 +94,7 @@ export default function PricingSection() {
 
             <div className="mt-8">
               <h4 className="font-semibold mb-4 text-yellow-400">
-                What's Included
+                What&apos;s Included
               </h4>
               <ul className="space-y-3">
                 {[
