@@ -7,6 +7,7 @@ import TestimonialsMarquee from "@/components/Testimonials";
 import React from "react";
 import PricingSection from "@/components/PricingSection";
 import FAQSection from "@/components/FAQSection";
+import MVPIn3Weeks from "@/components/MVPIn3Weeks";
 
 const page = () => {
   return (
@@ -14,6 +15,7 @@ const page = () => {
       <CanvasPage />
       <PricingSection />
       <Projects />
+      <MVPIn3Weeks /> 
       <ServicesSection />
       <Insights />
       <TestimonialsMarquee />
