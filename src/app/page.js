@@ -13,11 +13,13 @@ const page = () => {
   return (
     <div className="text-yellow-400 flex flex-col gap-8">
       <CanvasPage />
-      <PricingSection />
-      <Projects />
-      <MVPIn3Weeks /> 
       <ServicesSection />
+      <Projects />
+      <MVPIn3Weeks />
       <Insights />
+      <PricingSection />
+       
+      
       <TestimonialsMarquee />
       <FAQSection />
     </div>

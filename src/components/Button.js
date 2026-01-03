@@ -21,7 +21,7 @@ const FancyButton = ({ openModal }) => {
       {/* Top Button (starts offset, aligns on click) */}
       <a
         onClick={handleClick}
-        href="#"
+        href="https://cal.com/sahil-monpara-ghce9p/"
         className={`block relative z-10 text-center font-semibold text-black backdrop-blur-md bg-white/20 rounded-xl shadow-md transition-transform duration-300 ${
           isPressed
             ? "translate-x-0 translate-y-0"

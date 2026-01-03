@@ -67,7 +67,8 @@ export default function PricingSection() {
             </div>
 
             <a
-              href="mailto:sahilmonparah@gmail.com?subject=Free%20Discovery%20Call&body=Hi%20ElivateLabs%20Team,%0A%0AI%20would%20like%20to%20book%20a%20free%20discovery%20call.%0A%0AThanks!"
+              // href="mailto:sahilmonparah@gmail.com?subject=Free%20Discovery%20Call&body=Hi%20ElivateLabs%20Team,%0A%0AI%20would%20like%20to%20book%20a%20free%20discovery%20call.%0A%0AThanks!"
+              href="https://cal.com/sahil-monpara-ghce9p/"
               className="mt-8 w-full inline-flex justify-center items-center bg-yellow-400 text-black font-bold py-3.5 rounded-xl hover:bg-yellow-300 transition"
             >
               Free Discovery Mail →
@@ -131,7 +132,8 @@ export default function PricingSection() {
             </div>
 
             <a
-              href="mailto:sahilmonparah@gmail.com?subject=Consultation%20Request&body=Hi%20ElivateLabs%20Team,%0A%0AI’d%20like%20to%20schedule%20a%20technical%20consultation.%0A%0AProject%20details:%0A-%20Company:%0A-%20Timeline:%0A-%20Budget:%0A%0AThanks!"
+              href="https://cal.com/sahil-monpara-ghce9p/"
+              // href="mailto:sahilmonparah@gmail.com?subject=Consultation%20Request&body=Hi%20ElivateLabs%20Team,%0A%0AI’d%20like%20to%20schedule%20a%20technical%20consultation.%0A%0AProject%20details:%0A-%20Company:%0A-%20Timeline:%0A-%20Budget:%0A%0AThanks!"
               className="mt-8 w-full inline-flex items-center justify-center gap-2 bg-white text-black font-bold py-3.5 rounded-xl hover:bg-gray-200 transition"
             >
               <Calendar className="w-4 h-4" />
